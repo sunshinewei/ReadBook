@@ -11,3 +11,5 @@
 在默认情况下，onMeasure()只支持EXACTLY模式，所以在自定义View的时候要重写此方法,将测量值赋给setMeasuredDimension()方法。~对于自定义View来说，要判断他的测量模式，设置他的大小。~
 #ViewGroup的测量
 ~ViewGroup会管理一些子View,当ViewGroup为包裹内容时，ViewGroup就对子View进行遍历，以便获得子View的大小，从而决定自己的大小。通过getChildCount()获取子View,然后遍历。~
+#ViewGroup的绘制
+~在绘制ViewGroup的时候，如果不指定他的背景颜色，则ViewGroup的onDraw()方法不会调用。~
