@@ -23,4 +23,6 @@
 - FLAG_ACTIVITY_SIGNLE_TOP:
 ~跟SignleTop启动模式一样。~
 - FLAG_ACTIVITY_CLEAR_TOP:
+~使用SignleTask启动一个Activity~
 - FLAG_ACTIVITY_NO_HISTORY:
+~使用该模式启动一个Activity后，该Activity就会消失，不会在任务栈中~
