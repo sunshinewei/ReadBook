@@ -1,6 +1,6 @@
 #Activity
 ###Activity的生命周期
-~onCreate()---->onStart()---->onPause()----->onResume()---->onPause()----->onStop()---->onDestory();~
+<code>onCreate()---->onStart()---->onPause()----->onResume()---->onPause()----->onStop()---->onDestory()</code>
 ######Paused状态
 ~表示当Activity失去其焦点，被一个新的非全屏的Activity或者一个透明的Activity放在栈顶时，转换为Paused状态，他失去与用户交互的能力，所有的信息成员变量还保持着。但在系统内存极低的情况下，会被系统回收掉。~
 #####Activity重新创建的过程
@@ -18,11 +18,30 @@
 ~会创建一个新的任务栈，且该任务栈中只存在这一个Activity。如果应用A创建一个MainActivity,且启动模式为此模式，如果B应用也要激活MainActivity,则不需要创建，两者应该共享。~
 **SignleTask和SignleInstance中使用startActivityForResult()方法来启动另一个ActivityB,这种情况系统直接返回Activity.RESULT_CANCELED,而不再去等待返回。这种情况只能通过Intent来绑定数据。**
 #####Intent Flag启动模式
+<pre><code>
 - Intent.FLAG_ACTIVITY_NEW_TASK:
-~使用一个新的Task启动一个Activity.~
+使用一个新的Task启动一个Activity.
 - FLAG_ACTIVITY_SIGNLE_TOP:
-~跟SignleTop启动模式一样。~
+跟SignleTop启动模式一样。
 - FLAG_ACTIVITY_CLEAR_TOP:
-~使用SignleTask启动一个Activity~
+使用SignleTask启动一个Activity
 - FLAG_ACTIVITY_NO_HISTORY:
 ~使用该模式启动一个Activity后，该Activity就会消失，不会在任务栈中~
+- FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS:
+该标记的Acyivity不会出现在历史Activity的列表中，有时候我们不希望我们的Activity返回到历史的列表中，我们就采用次标记。</code></pre>
+###IntentFilter的匹配规则
+~一个Activity可以有多个intent-filter.~
+#####action的匹配规则：
+~Intent中的action必须能够和过滤规则中的action匹配，就是说和action的字符串完全一致。在一个过滤规则中有多个action，只要匹配一个intent中的action能够和过滤规则中的任何一个action相同即可匹配。同时需要注意的是，action是区分大小写的。~
+#####category的匹配规则：
+~与actionn不同，如果intent中出现category，不管有几个category，他都必须与intent匹配。~
+#####data的匹配规则：
+~data的过滤规则与action的相似，但是data的结构不同于action和category。~
+data的结构，有两部分组成，mimeType和URI两部分组成，mimeType是指媒体类型，例：image/jpeg等，URI的结构如下：
+<code><scheme>://<host>:<port>/[<path>|<pathPrefix>|<pathPattern>]</code>
+scheme:URI的模式，比如http、file、content等如果URI中没有指定scheme，则整个URI无效。
+Host:URI的主机名，
+port:URI的端口号。
+path、pathPrefix、pathPattern:表示路径消息，path表示完整的路径，pathPattern:表示完整的路径消息，可以含有通配符；pathPrefix:路径的前缀消息。
+URI默认值为file/content.
+**注意，如果intent中指定了完整的data,就必须调用<code>setDataAndType</code>方法，而不能调用<code>setData</code>或<code>setType</code>,这两个方法会相互清除对方的值。**
