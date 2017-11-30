@@ -36,3 +36,10 @@ adapter继承<code>BaseMultiItemQuickAdapter</code>
     }
 
 </code></pre>
+
+##### RecyclerView嵌套RecyclerView出现卡问题（添加一个ViewPool）https://www.ctolib.com/topics-116825.html
+<pre><code>
+RecyclerView.RecyclerViewPool pool=new RecyclerView.RecyclerViewPool();
+recyclerview.setRecyclerViewPool(mSharePool);
+</code></pre>
+
