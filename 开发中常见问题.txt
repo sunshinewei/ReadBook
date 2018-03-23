@@ -1,0 +1,85 @@
+Error:Execution failed for task ':sobotsdk:processDebugAndroidTestManifest'.
+> Manifest merger failed : uses-sdk:minSdkVersion 1 cannot be smaller than version 4 declared in library [com.android.support:support-v4:23.4.0] E:\WelcomActivity\sobotsdk\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\AndroidManifest.xml
+	Suggestion: use tools:overrideLibrary="android.support.v4" to force usage
+
+依赖库版本问题
+
+
+
+Error:Execution failed for task ':WelcomActivity:mergeDebugResources'.
+> Error: java.lang.RuntimeException: Some file crunching failed, see logs for details
+.9patch图问题
+
+
+
+Error:Execution failed for task ':WelcomActivity:processDebugManifest'.
+> Manifest merger failed with multiple errors, see logs
+
+build.gradle中的targetSdkVersion和androidManifest.xml的版本不一致。
+
+
+
+Error:Execution failed for task ':WelcomActivity:processDebugManifest'.
+> Manifest merger failed with multiple errors, see logs
+
+
+
+
+Error:注: 某些输入文件使用或覆盖了已过时的 API。
+注: 有关详细信息, 请使用 -Xlint:deprecation 重新编译。
+注: 某些输入文件使用了未经检查或不安全的操作。
+注: 有关详细信息, 请使用 -Xlint:unchecked 重新编译。
+E:\WelcomActivity\WelcomActivity\src\main\AndroidManifest.xml:8:5-10:41 Error:
+	uses-sdk:minSdkVersion 8 cannot be smaller than version 14 declared in library [com.android.support:support-v4:26.0.0-alpha1] E:\WelcomActivity\WelcomActivity\build\intermediates\exploded-aar\com.android.support\support-v4\26.0.0-alpha1\AndroidManifest.xml
+	Suggestion: use tools:overrideLibrary="android.support.v4" to force usage
+FAILURE: Build failed with an exception.
+
+
+
+uses-sdk:minSdkVersion 8 cannot be smaller than version 14 declared in library [com.android.support:support-v4:26.0.0-alpha1] E:\WelcomActivity\WelcomActivity\build\intermediates\exploded-aar\com.android.support\support-v4\26.0.0-alpha1\AndroidManifest.xml
+Suggestion: use tools:overrideLibrary="android.support.v4" to force usage
+
+.
+Error:(22, 13) Failed to resolve: com.android.support:support-v4:23.0.0-alpha1
+<a href="install.m2.repo">Install Repository and sync project</a><br><a href="openFile:E:/WelcomActivity/sobotsdk/build.gradle">Show in File</a><br><a href="open.dependency.in.project.structure">Show in Project Structure dialog</a>
+
+
+Error:Execution failed for task ':sobotsdk:processDebugAndroidTestManifest'.
+> Manifest merger failed : uses-sdk:minSdkVersion 1 cannot be smaller than version 14 declared in library [com.android.support:support-v4:26.0.0-alpha1] E:\WelcomActivity\sobotsdk\build\intermediates\exploded-aar\com.android.support\support-v4\26.0.0-alpha1\AndroidManifest.xml
+	Suggestion: use tools:overrideLibrary="android.support.v4" to force usage
+
+
+
+Error:Execution failed for task ':WelcomActivity:transformClassesWithDexForDebug'.
+解决办法：
+ dexOptions {
+        javaMaxHeapSize "4g"
+    }
+
+
+Error:Error converting bytecode to dex:
+Cause: com.android.dex.DexException: Multiple dex files define Lokhttp3/Address;
+
+
+Start-BitsTransfer : 操作超时
+
+
+
+Error:Execution failed for task ':WelcomActivity:lintVitalRelease'.
+> Lint found fatal errors while assembling a release target.
+To proceed, either fix the issues identified by lint, or modify your build script as follows:
+...
+android {
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }
+}
+..
+
+
+
+
+
