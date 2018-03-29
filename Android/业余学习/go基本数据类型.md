@@ -12,3 +12,74 @@
 
 
 
+##### 时间和日期（Time）
+
+
+##### switch与java不同，可以是任何数据类型
+
+
+
+##### for-range结构
+
+<pre>
+for pos, char := range str {
+...
+}
+</pre>
+
+
+##### 标签与goto
+标签的使用
+
+<pre>
+LABEL1:
+    for i := 0; i <= 5; i++ {
+        for j := 0; j <= 5; j++ {
+            if j == 4 {
+                continue LABEL1
+            }
+            fmt.Printf("i is: %d, and j is: %d\n", i, j)
+        }
+    }
+</pre>
+
+goto的使用：
+
+
+如果您必须使用 goto，应当只使用正序的标签（标签位于 goto 语句之后），但注意标签和 goto 语句之间不能出现定义新变量的语句，否则会导致编译失败。
+
+
+##### 函数
+
+函数可以多值返回
+
+<pre>
+num1, num2 = add(2, 4)
+
+func add(a int, b int) (int, int) {
+
+	return a * 3, b * 4
+
+}
+</pre>
+
+##### 空白符：
+
+空白符用来匹配一些不需要的值，然后丢弃掉。
+
+##### 可以传递变长参数
+如果函数的最后一个参数是采用 ...type 的形式，那么这个函数就可以处理一个变长的参数，这个长度可以为 0，这样的函数称为变参函数。
+
+#####  defer和追踪（log库）
+关键字 defer 允许我们推迟到函数返回之前一刻才执行某个语句或函数。
+
+实例如下：（执行结果先执行输出语句，在执行方法体）
+<pre>
+defer funSwitch()
+
+fmt.Println("输出结果为num1=%d,num2=%d", num1, num2)
+</pre>
+
+
+
+
