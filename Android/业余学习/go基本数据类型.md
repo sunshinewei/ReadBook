@@ -80,6 +80,9 @@ defer funSwitch()
 fmt.Println("输出结果为num1=%d,num2=%d", num1, num2)
 </pre>
 
+##### 切片
+是对数组一个连续片段的引用.
+
 
 
 
