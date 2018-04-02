@@ -81,8 +81,54 @@ fmt.Println("输出结果为num1=%d,num2=%d", num1, num2)
 </pre>
 
 ##### 切片
-是对数组一个连续片段的引用.
+是对数组一个连续片段的引用.对数组的抽象。与数组相比切片的长度不固定，可以追加元素，再追加时，可能使贴片的容量增大。
+对于切片来说，不需要说明长度。
+可以使用<code>make</code>创建切片
+<pre>
+ var numbers = make([]int,3,5)
+</pre>
 
+##### Range关键字
+Go 语言中 range 关键字用于for循环中迭代数组(array)、切片(slice)、通道(channel)或集合(map)的元素。在数组和切片中它返回元素的索引值，在集合中返回 key-value 对的 key 值。
+<pre>
+numbers := []int{3, 6, 8, 6, 5, 9}
+
+	for _, nums := range numbers {
+
+		fmt.Print(nums)
+	}
+</pre>
+
+##### Map关键字
+构建map的两种方法
+<pre>
+/* 声明变量，默认 map 是 nil */
+var map_variable map[key_data_type]value_data_type
+
+/* 使用 make 函数 */
+map_variable := make(map[key_data_type]value_data_type)
+</pre>
+
+使用Map
+<pre>
+var maps map[string]string
+
+	maps = make(map[string]string)//创建集合，不然map集合为空
+
+	maps["x"] = "aaa"
+
+	maps["y"] = "bbb"
+
+	maps["z"] = "ccc"
+
+	for str := range maps {
+
+		fmt.Println(str, "  "+maps[str])
+	}
+</pre>
+
+
+##### 接口
 
 
 
