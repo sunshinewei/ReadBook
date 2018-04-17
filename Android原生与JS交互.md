@@ -91,3 +91,16 @@
 <pre>
 webView.loadUrl("javascript:setRed()");
 </pre>
+
+#### 请求同步Cookie
+<pre>
+ 
+public static void synCookies(Context context, String url) {  
+    CookieSyncManager.createInstance(context);  
+    CookieManager cookieManager = CookieManager.getInstance();  
+    cookieManager.setAcceptCookie(true);  
+    cookieManager.removeSessionCookie();//移除  
+    cookieManager.setCookie(url, cookies);//cookies是在HttpClient中获得的cookie  
+    CookieSyncManager.getInstance().sync();  
+}
+</pre>
