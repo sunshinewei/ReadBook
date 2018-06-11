@@ -104,3 +104,18 @@ public static void synCookies(Context context, String url) {
     CookieSyncManager.getInstance().sync();  
 }
 </pre>
+
+在html换起app：
+<intent-filter>
+            <action android:name="android.intent.action.VIEW" />
+            <category android:name="android.intent.category.DEFAULT" />
+            
+            
+            
+            <category android:name="android.intent.category.BROWSABLE" />
+            <data android:host="splash" android:scheme="cundong" />
+       </intent-filter>
+      地址是：
+     src="cundong://splash"
+
+
