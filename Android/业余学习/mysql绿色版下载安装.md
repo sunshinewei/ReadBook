@@ -27,3 +27,15 @@ default-character-set=utf8
 mysqladmin -u root -p password 新密码  
 Enter password: 旧密码  
 </code>
+
+
+### SQL语句
+
+##### join从句
+左连接、右连接和内连接
+
+<pre><code>
+FROM table1 INNER|LEFT|RIGHT JOIN table2 ON condition  WHERE condition
+</code></pre>
+
+Cross join
