@@ -27,3 +27,22 @@ select * from student_table order by name DESC;
 UNION 操作符用于合并两个或多个 SELECT 语句的结果集。
 
 请注意，UNION 内部的 SELECT 语句必须拥有相同数量的列。列也必须拥有相似的数据类型。同时，每条 SELECT 语句中的列的顺序必须相同。
+
+### 创建索引
+<pre><code>
+CREATE INDEX index_name
+ON table_name (column_name)
+不为一列时可以（column1, column2）
+</code></pre>
+
+#### Drop语句：删除表，索引，数据库
+####  Alter语句：
+
+#### 将数据源导入数据库中
+<pre><code>
+source D:/worksp/yiibaidb.sql;
+</code></pre>
+#### 将为null的映射到其他值用if语句：
+<pre><code>
+select customername,if(state is null,'N/A',state),country from customers;
+</code></pre>
