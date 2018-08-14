@@ -60,3 +60,14 @@ CREATE TRIGGER trigger_name trigger_time(before/after) trigger_event(insert/upda
 CREATE USER dbadmin@192.168.1.100 
 IDENTIFIED BY 'pwd123';
 </code></pre>
+
+#### MySQL可以设置全局搜索
+<pre><code>
+CREATE FULLTEXT INDEX index_name
+ON table_name(idx_column_name,...)
+
+或
+
+ALTER TABLE  table_name  
+ADD FULLTEXT(column_name1, column_name2,…)
+</code></pre>
