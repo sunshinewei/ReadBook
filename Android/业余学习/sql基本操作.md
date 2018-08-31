@@ -11,6 +11,11 @@ select * from student_table order by name DESC;
  select * from student_table limit 3;
 </code></pre>
 
+可以这样排序
+<pre><code>
+ SELECT name FROM Products ORDER BY price * quantity DESC, name ASC limit 1;
+</code></pre>
+
 #### 通配符
 <pre><code>
 % ：  替代一个或多个字符
