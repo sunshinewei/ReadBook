@@ -13,7 +13,7 @@ select * from student_table order by name DESC;
 
 可以这样排序
 <pre><code>
- SELECT name FROM Products ORDER BY price * quantity DESC, name ASC limit 1;
+ SELECT name FROM Products ORDER BY price * quantity DESC, name ASC limit 1,m;//从第几条开始，m是几条数据
 </code></pre>
 
 #### 通配符
