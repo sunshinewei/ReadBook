@@ -53,3 +53,6 @@ source D:/worksp/yiibaidb.sql;
 <pre><code>
 select customername,if(state is null,'N/A',state),country from customers;
 </code></pre>
+
+#### 常见的函数
+field（）:排序指定什么位置
