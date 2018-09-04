@@ -27,6 +27,8 @@ select * from student_table order by name DESC;
 
 #### 别名 as
 
+#### 截取字符串SUBString(Name,1,3)
+
 
 #### Union/Union ALL
 UNION 操作符用于合并两个或多个 SELECT 语句的结果集。
