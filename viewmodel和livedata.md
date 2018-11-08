@@ -25,4 +25,10 @@
 </code></pre>
 
 调用时：
-ViewModelProviders.of(this).get(TeastViewModel.class);
+ teastViewModel=ViewModelProviders.of(this).get(TeastViewModel.class);
+ teastViewModel.getMutableLiveData().observe(this, new Observer<ProDetailBean>() {
+      @Override
+      public void onChanged(@Nullable ProDetailBean proDetailBean) {
+           btn_save.setText(proDetailBean.getName());
+      }
+ });
