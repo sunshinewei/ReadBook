@@ -23,3 +23,6 @@
         return mNameListData;
     }
 </code></pre>
+
+调用时：
+ViewModelProviders.of(this).get(TeastViewModel.class);
