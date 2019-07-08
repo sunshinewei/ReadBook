@@ -17,3 +17,9 @@ GridView.count(
   physics: NeverScrollableScrollPhysics(),      // 处理GridView中滑动父级Listview无法滑动
 )
 　　
+  
+  
+  
+  
+  
+SingleChildScrollView嵌套ListView或者GrideView使用，解决滑动冲突事件，SingleChildScrollView让永远滑动，ListView采用physics: const NeverScrollableScrollPhysics(),shrinkWrap: true,即可解决。
