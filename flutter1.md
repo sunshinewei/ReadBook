@@ -23,3 +23,86 @@ GridView.count(
   
   
 SingleChildScrollView嵌套ListView或者GrideView使用，解决滑动冲突事件，SingleChildScrollView让永远滑动，ListView采用physics: const NeverScrollableScrollPhysics(),shrinkWrap: true,即可解决。
+
+
+在flutter中点击退出按钮不直接退出应用程序，隐藏到后台的解决方法：
+<pre><code>
+import android.os.Bundle;
+import android.os.Looper;
+
+import io.flutter.app.FlutterActivity;
+import io.flutter.plugins.GeneratedPluginRegistrant;
+
+import android.view.KeyEvent;
+import android.content.Intent;
+import android.widget.Toast;
+
+import io.flutter.plugin.common.MethodChannel;
+
+
+public class MainActivity extends FlutterActivity {
+    //通讯名称,回到手机桌面
+    private final String chanel = "android/back/desktop";
+    //返回手机桌面事件
+    static final String eventBackDesktop = "backDesktop";
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        GeneratedPluginRegistrant.registerWith(this);
+        initBackTop();
+    }
+    
+
+    //注册返回到手机桌面事件
+    private void initBackTop() {
+        new MethodChannel(getFlutterView(), chanel).setMethodCallHandler(
+                (methodCall, result) -> {
+                    if (methodCall.method.equals(eventBackDesktop)) {
+                        moveTaskToBack(false);
+                        result.success(true);
+                    }
+                }
+        );
+    }
+}
+</code></pre>
+在flutter中定义
+<pre><code>
+import 'package:flutter/services.dart';
+import 'package:flutter/material.dart';
+
+class AndroidBackTop {
+  ///通讯名称,回到手机桌面
+  static const String chanel = "android/back/desktop";
+
+  //返回手机桌面事件
+  static const String eventBackDesktop = "backDesktop";
+
+  ///设置回退到手机桌面
+  static Future<bool> backDesktop() async {
+    final platform = MethodChannel(chanel);
+    try {
+      await platform.invokeMethod(eventBackDesktop);
+    } on PlatformException catch (e) {
+      debugPrint(e.toString());
+    }
+    return Future.value(false);
+  }
+}
+  </code></pre>
+  
+  在要退出的页面写：
+<pre><code>
+@override
+  Widget build(BuildContext context) {
+ 
+    return WillPopScope(
+      onWillPop: AndroidBackTop.backDesktop, //页面将要消失时，调用原生的返回桌面方法
+      child: new Scaffold(
+        body: pageData[currentPosition],
+        bottomNavigationBar: botNavBar,
+      ),
+    );
+  }
+  </code></pre>
