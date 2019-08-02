@@ -106,3 +106,21 @@ class AndroidBackTop {
     );
   }
   </code></pre>
+  
+  flutter打包时，报如下错误：
+  java.lang.UnsatisfiedLinkError: dalvik.system.PathClassLoader[DexPathList[[zip file 
+    "/data/app/包名-ByONc3XVTut87IekSqMjdg==/base.apk"],nativeLibraryDirectories=
+    [/data/app/包名-ByONc3XVTut87IekSqMjdg==/lib/arm64, /data/app包名-
+    ByONc3XVTut87IekSqMjdg==/base.apk!/lib/arm64-v8a, /system/lib64, /vendor/lib64]]] couldn't find 
+    "libflutter.so"
+    
+    可以做如下修改：
+    <pre><code>
+    defaultConfig {
+      ......
+        ndk {
+            abiFilters "armeabi-v7a", "x86"
+        }
+    }
+    </code></pre>
+  
