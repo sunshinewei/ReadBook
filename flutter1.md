@@ -123,4 +123,17 @@ class AndroidBackTop {
         }
     }
     </code></pre>
+    
+    
+    
+  检测flutter返回键监听
+  <code>
+WillPopScope(
+        child: Scaffold(),onWillPop: (){});
+</code>
+
+如何使用flutter隐藏软键盘
+<code>
+  FocusScope.of(context).requestFocus(FocusNode())
+  <code>
   
