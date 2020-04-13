@@ -2,20 +2,20 @@ Error:Execution failed for task ':sobotsdk:processDebugAndroidTestManifest'.
 > Manifest merger failed : uses-sdk:minSdkVersion 1 cannot be smaller than version 4 declared in library [com.android.support:support-v4:23.4.0] E:\WelcomActivity\sobotsdk\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\AndroidManifest.xml
 	Suggestion: use tools:overrideLibrary="android.support.v4" to force usage
 
-ÒÀÀµ¿â°æ±¾ÎÊÌâ
+ä¾èµ–åº“ç‰ˆæœ¬é—®é¢˜
 
 
 
 Error:Execution failed for task ':WelcomActivity:mergeDebugResources'.
 > Error: java.lang.RuntimeException: Some file crunching failed, see logs for details
-.9patchÍ¼ÎÊÌâ
+.9patchå›¾é—®é¢˜
 
 
 
 Error:Execution failed for task ':WelcomActivity:processDebugManifest'.
 > Manifest merger failed with multiple errors, see logs
 
-build.gradleÖĞµÄtargetSdkVersionºÍandroidManifest.xmlµÄ°æ±¾²»Ò»ÖÂ¡£
+build.gradleä¸­çš„targetSdkVersionå’ŒandroidManifest.xmlçš„ç‰ˆæœ¬ä¸ä¸€è‡´ã€‚
 
 
 
@@ -25,10 +25,10 @@ Error:Execution failed for task ':WelcomActivity:processDebugManifest'.
 
 
 
-Error:×¢: Ä³Ğ©ÊäÈëÎÄ¼şÊ¹ÓÃ»ò¸²¸ÇÁËÒÑ¹ıÊ±µÄ API¡£
-×¢: ÓĞ¹ØÏêÏ¸ĞÅÏ¢, ÇëÊ¹ÓÃ -Xlint:deprecation ÖØĞÂ±àÒë¡£
-×¢: Ä³Ğ©ÊäÈëÎÄ¼şÊ¹ÓÃÁËÎ´¾­¼ì²é»ò²»°²È«µÄ²Ù×÷¡£
-×¢: ÓĞ¹ØÏêÏ¸ĞÅÏ¢, ÇëÊ¹ÓÃ -Xlint:unchecked ÖØĞÂ±àÒë¡£
+Error:æ³¨: æŸäº›è¾“å…¥æ–‡ä»¶ä½¿ç”¨æˆ–è¦†ç›–äº†å·²è¿‡æ—¶çš„ APIã€‚
+æ³¨: æœ‰å…³è¯¦ç»†ä¿¡æ¯, è¯·ä½¿ç”¨ -Xlint:deprecation é‡æ–°ç¼–è¯‘ã€‚
+æ³¨: æŸäº›è¾“å…¥æ–‡ä»¶ä½¿ç”¨äº†æœªç»æ£€æŸ¥æˆ–ä¸å®‰å…¨çš„æ“ä½œã€‚
+æ³¨: æœ‰å…³è¯¦ç»†ä¿¡æ¯, è¯·ä½¿ç”¨ -Xlint:unchecked é‡æ–°ç¼–è¯‘ã€‚
 E:\WelcomActivity\WelcomActivity\src\main\AndroidManifest.xml:8:5-10:41 Error:
 	uses-sdk:minSdkVersion 8 cannot be smaller than version 14 declared in library [com.android.support:support-v4:26.0.0-alpha1] E:\WelcomActivity\WelcomActivity\build\intermediates\exploded-aar\com.android.support\support-v4\26.0.0-alpha1\AndroidManifest.xml
 	Suggestion: use tools:overrideLibrary="android.support.v4" to force usage
@@ -51,7 +51,7 @@ Error:Execution failed for task ':sobotsdk:processDebugAndroidTestManifest'.
 
 
 Error:Execution failed for task ':WelcomActivity:transformClassesWithDexForDebug'.
-½â¾ö°ì·¨£º
+è§£å†³åŠæ³•ï¼š
  dexOptions {
         javaMaxHeapSize "4g"
     }
@@ -61,7 +61,7 @@ Error:Error converting bytecode to dex:
 Cause: com.android.dex.DexException: Multiple dex files define Lokhttp3/Address;
 
 
-Start-BitsTransfer : ²Ù×÷³¬Ê±
+Start-BitsTransfer : æ“ä½œè¶…æ—¶
 
 
 
@@ -78,6 +78,14 @@ android {
     }
 }
 ..
+
+
+åˆ‡æ¢ç°åº¦
+Paint paint = new Paint();
+        ColorMatrix colorMatrix = new ColorMatrix();
+        colorMatrix.setSaturation(0f);
+        paint.setColorFilter(new ColorMatrixColorFilter(colorMatrix));
+        this.getWindow().getDecorView().setLayerType(View.LAYER_TYPE_HARDWARE, paint);
 
 
 
