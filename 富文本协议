@@ -1,0 +1,35 @@
+
+        SpannableStringBuilder spannableString = new SpannableStringBuilder();
+        spannableString.append("请勾选同意《服务协议》和《隐私政策》");
+        ClickableSpan clickableSpan1 = new ClickableSpan() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(LoginActivity.this, "请不要点我服务协议", Toast.LENGTH_SHORT).show();
+            }
+            @Override
+            public void updateDrawState(@NonNull TextPaint ds) {
+//                super.updateDrawState(ds);
+                ds.setUnderlineText(false);
+            }
+        };
+        ClickableSpan clickableSpan2 = new ClickableSpan() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(LoginActivity.this, "请不要点我隐私政策", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void updateDrawState(@NonNull TextPaint ds) {
+//                super.updateDrawState(ds);
+                ds.setUnderlineText(false);
+            }
+        };
+        spannableString.setSpan(clickableSpan1, 5, 18, Spannable.SPAN_EXCLUSIVE_INCLUSIVE);
+        spannableString.setSpan(clickableSpan2, 19, 25, Spannable.SPAN_EXCLUSIVE_INCLUSIVE);
+        ForegroundColorSpan colorSpan1 = new ForegroundColorSpan(getResources().getColor(R.color.color_f1a959));
+        ForegroundColorSpan colorSpan2 = new ForegroundColorSpan(getResources().getColor(R.color.color_f1a959));
+        spannableString.setSpan(colorSpan1, 5, 18, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        spannableString.setSpan(colorSpan2, 19, 25, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        ruleTv.setText(spannableString);
+        ruleTv.setMovementMethod(LinkMovementMethod.getInstance());
